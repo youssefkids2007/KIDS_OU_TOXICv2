@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autoplay Song with Video</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .center-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .center-image img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .footer-text {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgb(243, 99, 204);
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    .top-right-text {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: rgb(243, 99, 204);
+      font-size: 1.5em;
+      text-align: right;
+    }
+
+    .top-left-text {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      color: rgb(243, 99, 204);
+      font-size: 1.5em;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="Hitler parle français – traduit par lintelligence artificielle.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Hidden Autoplay Audio -->
+  <audio src="Toyor Al Janah   Arnab Wa Ta3lab   طيور الجنة   الارنب والثعلب   YouTube.mp3" autoplay loop hidden></audio>
+  <script>
+    const bgm = new Audio('Toyor Al Janah   Arnab Wa Ta3lab   طيور الجنة   الارنب والثعلب   YouTube.mp3');
+    bgm.loop = true;
+    bgm.volume = 1;
+    bgm.play().catch(() => {
+      document.addEventListener('click', () => bgm.play());
+    });
+  </script>
+
+  <!-- Center Circular Image -->
+  <div class="center-image">
+    <img src="5f242b9b5f7f923610f58a4853f863ed.png" alt="Center Image">
+  </div>
+
+  <!-- Footer Text -->
+  <div class="footer-text">
+    <p>يوسف أطفالي مرّ من هنا</p>
+  </div>
+
+  <!-- Top Right Text -->
+  <div class="top-right-text">
+    <p>ta7chalkom t7otou m3a el 3abd el 8alet</p>
+  </div>
+
+  <!-- Top Left Text -->
+  <div class="top-left-text">
+    <p>KIDS OU TOXIC W TAW TCHEDDOULI ZEBY</p>
+  </div>
+
+</body>
+</html>
